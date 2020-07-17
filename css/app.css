@@ -17,6 +17,60 @@ body {
   width: 100%;
 }
 
+#how-to-use {
+  margin: 60px 0 0;
+  list-style: none;
+  padding: 30px 45px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(246,246,246,1) 0%, rgba(246,246,246,0) 100%);
+  position: relative;
+}
+
+#how-to-use::before {
+  content: 'How To Use';
+  position: absolute;
+  left: 20px;
+  font-weight: bold;
+  top: -23px;
+  font-size: 30px;
+  background: linear-gradient(180deg, rgba(244,52,52,1) 0%, rgba(172,25,25,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#how-to-use li {
+  margin: 15px 0;
+  padding: 0 10px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(244,52,52,1) 0%, rgba(172,25,25,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#how-to-use li::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(244,52,52,0.5);
+  border-radius: 10rem;
+  transform: translateY(-50%);
+}
+
+#how-to-use li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(244,52,52,0.5);
+  border-radius: 10rem;
+  transform: translateY(-50%);
+}
+
 #head-title {
   font-size: 35px;
   background: -webkit-linear-gradient(#7bc96f, #196127);
@@ -30,9 +84,9 @@ body {
 
 .action-button {
   appearance: none;
-  padding: 10px 15px;
+  padding: 15px 25px;
   border: 0;
-  border-radius: 5px;
+  border-radius: 10rem;
   background: transparent;
   cursor: pointer;
   outline: none;
@@ -41,10 +95,21 @@ body {
 #reset-activity-btn {
   background: #ff4b4b;
   color: #fff;
+  padding: 0;
+  height: 45px;
+  vertical-align: middle;
+  width: 45px;
+  margin-left: 10px;
+  background: linear-gradient(180deg, rgba(255,75,75,1) 0%, rgba(226,59,59,1) 100%);
+}
+
+#reset-activity-btn svg {
+  width: 20px;
+  height: 33px;
 }
 
 #create-image-btn {
-  background: #18a055;
+  background: linear-gradient(180deg, rgba(123,201,111,1) 0%, rgba(102,172,91,1) 100%);
   color: #fff;
 }
 
