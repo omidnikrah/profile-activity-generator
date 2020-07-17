@@ -5,12 +5,33 @@ class Generator {
     this.createImageButton = document.getElementById('create-image-btn');
     this.resetActivityButton = document.getElementById('reset-activity-btn');
     this.daysActivity = {};
+    this.isCtrlPressed = false;
     for (let i = 0; i < this.days.length; i++) {
       this.days[i].addEventListener('click', (event) => this.handleDayClick(event, i), false);
-      // this.days[i].addEventListener('mouseover', (event) => this.handleDayClick(event, i), false);
+      this.days[i].addEventListener('mouseover', (event) => this.handleDayHover(event, i), false);
     }
     this.createImageButton.addEventListener('click', this.createImage, false);
     this.resetActivityButton.addEventListener('click', this.resetActivity, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
+    document.addEventListener('keyup', this.handleKeyUp, false);
+  }
+
+  handleKeyDown = (event) => {
+    if (event.which === 91) {
+      this.isCtrlPressed = true;
+    }
+  }
+
+  handleKeyUp = (event) => {
+    if (event.which === 91) {
+      this.isCtrlPressed = false;
+    }
+  }
+
+  handleDayHover = (event, index) => {
+    if (this.isCtrlPressed) {
+      this.handleDayClick(event, index);
+    }
   }
 
   handleDayClick = (event, index) => {
