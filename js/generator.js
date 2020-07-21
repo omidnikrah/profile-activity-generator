@@ -6,6 +6,7 @@ class Generator {
     this.resetActivityButton = document.getElementById('reset-activity-btn');
     this.daysActivity = {};
     this.isCtrlPressed = false;
+    this.renderActivity(7, 52, 16);
     for (let i = 0; i < this.days.length; i++) {
       this.days[i].addEventListener('click', (event) => this.handleDayClick(event, i), false);
       this.days[i].addEventListener('mouseover', (event) => this.handleDayHover(event, i), false);
@@ -14,6 +15,20 @@ class Generator {
     this.resetActivityButton.addEventListener('click', this.resetActivity, false);
     document.addEventListener('keydown', this.handleKeyDown, false);
     document.addEventListener('keyup', this.handleKeyUp, false);
+  }
+
+  renderActivity = (x, y, distance) => {
+    let activityDOM = '';
+    for (let indexY = 0; indexY < y; indexY++) {
+      activityDOM += `
+        <g transform="translate(${indexY * distance}, 0)">
+      `;
+      for (let indexX = 0; indexX < x; indexX++) {
+        activityDOM += `<rect class="day" width="11" height="11" x="${distance - indexY}" y="${indexX * (distance - 1)}" fill="#ebedf0"></rect>`;
+      }
+      activityDOM += '</g>';
+    }
+    this.profileActivitySVG.insertAdjacentHTML('beforeend', activityDOM);
   }
 
   handleKeyDown = (event) => {
