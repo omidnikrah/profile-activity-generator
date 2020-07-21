@@ -115,4 +115,9 @@ body {
 
 .day {
   transition: all 150ms ease;
+  shape-rendering: geometricPrecision;
+  outline: 1px solid rgba(27,31,35,.04);
+  outline-offset: -1px;
+  rx: 2;
+  ry: 2;
 }
