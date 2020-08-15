@@ -1,6 +1,6 @@
 # Profile Activity Generator
 
-Generate custom profile activity for your profile README
+Generate custom profile activity for your profile READMEs
 
 🚧 Work In Progress 
 
