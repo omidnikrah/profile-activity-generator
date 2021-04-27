@@ -82,6 +82,24 @@ body {
   margin: 20px 0;
 }
 
+.tone-btn {
+  background: -webkit-linear-gradient(#7bc96f, #196127);
+  color: #fff;
+  padding: 0;
+  height: 45px;
+  vertical-align: middle;
+  width: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: none;
+}
+
+#tone-up-btn svg,
+#tone-down-btn svg {
+  width: 25px;
+  height: 33px;
+}
+
 .action-button {
   appearance: none;
   padding: 15px 25px;
