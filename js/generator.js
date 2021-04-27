@@ -79,9 +79,16 @@ class Generator {
 
   toneUp = (event) => {
     for (let i = 0; i < this.days.length; i++) {
-      this.handleDayClick(event, i);
-    }
-    for (let i = 0; i < this.days.length; i++) {
+      if(this.daysActivity[i]) {
+        if(this.daysActivity[i] === 4) {
+          this.daysActivity[i] = 0;
+        } else {
+          this.daysActivity[i] += 1;
+        }
+      } else {
+        this.daysActivity[i] = 1;
+      }
+
       switch(this.daysActivity[i]) {
         case 1:
           document.getElementById(i).setAttribute('fill', '#c6e48b');
@@ -104,7 +111,7 @@ class Generator {
 
   toneDown = (event) => {
     for (let i = 0; i < this.days.length; i++) {
-      if(this.daysActivity[i]){
+      if(this.daysActivity[i]) {
         if(this.daysActivity[i] === 0) {
           this.daysActivity[i] = 4;
         } else {
@@ -113,8 +120,7 @@ class Generator {
       } else {
         this.daysActivity[i] = 4;
       }
-    }
-    for (let i = 0; i < this.days.length; i++) {
+
       switch(this.daysActivity[i]) {
         case 1:
           document.getElementById(i).setAttribute('fill', '#c6e48b');

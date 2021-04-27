@@ -82,24 +82,16 @@ body {
   margin: 20px 0;
 }
 
-#tone-up-btn {
-  background: #196127;
+.tone-btn {
+  background: -webkit-linear-gradient(#7bc96f, #196127);
   color: #fff;
   padding: 0;
   height: 45px;
   vertical-align: middle;
   width: 45px;
   margin-right: 10px;
-}
-
-#tone-down-btn {
-  background: #7bc96f;
-  color: #fff;
-  padding: 0;
-  height: 45px;
-  vertical-align: middle;
-  width: 45px;
-  margin-right: 10px;
+  border-radius: 50%;
+  border: none;
 }
 
 #tone-up-btn svg,
