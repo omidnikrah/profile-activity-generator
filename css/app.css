@@ -121,3 +121,8 @@ body {
   rx: 2;
   ry: 2;
 }
+
+#switch-theme-btn {
+  background: linear-gradient(180deg, #2d333b 0%, #2d333b 100%);
+  color: #fff;
+}

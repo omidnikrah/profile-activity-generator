@@ -15,6 +15,9 @@ class Generator {
     this.resetActivityButton.addEventListener('click', this.resetActivity, false);
     document.addEventListener('keydown', this.handleKeyDown, false);
     document.addEventListener('keyup', this.handleKeyUp, false);
+    this.theme = 'light';
+    this.switchThemeButton = document.getElementById('switch-theme-btn');
+    this.switchThemeButton.addEventListener('click', this.switchTheme, false);
   }
 
   renderActivity = (x, y, distance) => {
@@ -95,6 +98,33 @@ class Generator {
       downloadLink.href = canvas.toDataURL('image/png');
       downloadLink.click();
     }
+  }
+
+  switchTheme = () => {
+    if(this.theme === 'light') {
+      this.theme = 'dark';
+      this.switchThemeButton.style.background = 'linear-gradient(180deg, #ebedf0 0%, #ebedf0 100%)';
+      this.switchThemeButton.style.color = '#000';
+    } else {
+      this.theme = 'light';
+      this.switchThemeButton.style.background = 'linear-gradient(180deg, #2d333b 0%, #2d333b 100%)';
+      this.switchThemeButton.style.color = '#fff';
+    }
+    let days = Array.prototype.slice.call(this.days);
+    days.forEach((day) => {
+      if(this.theme === 'dark') {
+        if(day.getAttribute('fill') === '#ebedf0') {
+          day.setAttribute('fill', '#2d333b');
+          document.body.style.background = '#22272e';
+        }
+      } else if(this.theme === 'light') {
+        console.log('done');
+        if(day.getAttribute('fill') === '#2d333b') {
+          day.setAttribute('fill', '#ebedf0')
+          document.body.style.background = '#fff';
+        }
+      }
+    })
   }
 }
 
