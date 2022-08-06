@@ -15,6 +15,9 @@ class Generator {
     this.resetActivityButton.addEventListener('click', this.resetActivity, false);
     document.addEventListener('keydown', this.handleKeyDown, false);
     document.addEventListener('keyup', this.handleKeyUp, false);
+    this.theme = 'light';
+    this.switchThemeButton = document.getElementById('switch-theme-btn');
+    this.switchThemeButton.addEventListener('click', this.switchTheme, false);
   }
 
   renderActivity = (x, y, distance) => {
@@ -95,6 +98,34 @@ class Generator {
       downloadLink.href = canvas.toDataURL('image/png');
       downloadLink.click();
     }
+  }
+
+  switchTheme = () => {
+    if(this.theme === 'light') {
+      this.theme = 'dark';
+      this.switchThemeButton.classList.add('dark-theme-btn');
+      this.switchThemeButton.classList.remove('light-theme-btn');
+    } else {
+      this.theme = 'light';
+      this.switchThemeButton.classList.add('light-theme-btn');
+      this.switchThemeButton.classList.remove('dark-theme-btn');
+    }
+    let days = Array.prototype.slice.call(this.days);
+    days.forEach((day) => {
+      if(this.theme === 'dark') {
+        if(day.getAttribute('fill') === '#ebedf0') {
+          day.setAttribute('fill', '#2d333b');
+          document.body.classList.add('dark-theme');
+          document.body.classList.remove('light-theme');
+        }
+      } else if(this.theme === 'light') {
+        if(day.getAttribute('fill') === '#2d333b') {
+          day.setAttribute('fill', '#ebedf0')
+          document.body.classList.add('light-theme');
+          document.body.classList.remove('dark-theme');
+        }
+      }
+    })
   }
 }
 
