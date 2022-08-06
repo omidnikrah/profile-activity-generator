@@ -118,7 +118,6 @@ class Generator {
           document.body.style.background = '#22272e';
         }
       } else if(this.theme === 'light') {
-        console.log('done');
         if(day.getAttribute('fill') === '#2d333b') {
           day.setAttribute('fill', '#ebedf0')
           document.body.style.background = '#fff';
