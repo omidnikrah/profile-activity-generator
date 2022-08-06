@@ -103,24 +103,26 @@ class Generator {
   switchTheme = () => {
     if(this.theme === 'light') {
       this.theme = 'dark';
-      this.switchThemeButton.style.background = 'linear-gradient(180deg, #ebedf0 0%, #ebedf0 100%)';
-      this.switchThemeButton.style.color = '#000';
+      this.switchThemeButton.classList.add('dark-theme-btn');
+      this.switchThemeButton.classList.remove('light-theme-btn');
     } else {
       this.theme = 'light';
-      this.switchThemeButton.style.background = 'linear-gradient(180deg, #2d333b 0%, #2d333b 100%)';
-      this.switchThemeButton.style.color = '#fff';
+      this.switchThemeButton.classList.add('light-theme-btn');
+      this.switchThemeButton.classList.remove('dark-theme-btn');
     }
     let days = Array.prototype.slice.call(this.days);
     days.forEach((day) => {
       if(this.theme === 'dark') {
         if(day.getAttribute('fill') === '#ebedf0') {
           day.setAttribute('fill', '#2d333b');
-          document.body.style.background = '#22272e';
+          document.body.classList.add('dark-theme');
+          document.body.classList.remove('light-theme');
         }
       } else if(this.theme === 'light') {
         if(day.getAttribute('fill') === '#2d333b') {
           day.setAttribute('fill', '#ebedf0')
-          document.body.style.background = '#fff';
+          document.body.classList.add('light-theme');
+          document.body.classList.remove('dark-theme');
         }
       }
     })

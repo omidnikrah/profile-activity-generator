@@ -122,7 +122,24 @@ body {
   ry: 2;
 }
 
-#switch-theme-btn {
-  background: linear-gradient(180deg, #2d333b 0%, #2d333b 100%);
+.dark-theme {
+  background-color: #22272e;
   color: #fff;
 }
+
+.light-theme {
+  background: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #2d333b;
+}
+
+.dark-theme-btn {
+  background: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #2d333b;
+}
+
+.light-theme-btn {
+  background-color: #22272e;
+  color: #fff;
+}
+
+
