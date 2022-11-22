@@ -6,6 +6,7 @@ class Generator {
     this.resetActivityButton = document.getElementById('reset-activity-btn');
     this.daysActivity = {};
     this.isCtrlPressed = false;
+    this.isShiftPressed = false;
     this.renderActivity(7, 52, 16);
     for (let i = 0; i < this.days.length; i++) {
       this.days[i].addEventListener('click', (event) => this.handleDayClick(event, i), false);
@@ -38,12 +39,19 @@ class Generator {
     if (event.which === 91) {
       this.isCtrlPressed = true;
     }
+    if (event.which === 16) {
+      this.isShiftPressed = true;
+    }
   }
 
   handleKeyUp = (event) => {
     if (event.which === 91) {
       this.isCtrlPressed = false;
     }
+    if (event.which === 16) {
+      this.isShiftPressed = false;
+    }
+
   }
 
   handleDayHover = (event, index) => {
@@ -52,9 +60,12 @@ class Generator {
     }
   }
 
-  handleDayClick = (event, index) => {
-    this.daysActivity[index] = this.daysActivity[index] ? this.daysActivity[index] + 1 : 1;
+  handleDayClick = (event, index, modifier=1-(this.isShiftPressed*2)) => {
+    this.daysActivity[index] = this.daysActivity[index] ? Math.max(0, Math.min(4, this.daysActivity[index] + modifier)) : +(!this.isShiftPressed);
     switch(this.daysActivity[index]) {
+      case 0:
+        event.target.setAttribute('fill', '#ebedf0');
+        break;
       case 1:
         event.target.setAttribute('fill', '#c6e48b');
         break;
