@@ -22,7 +22,7 @@ body {
   list-style: none;
   padding: 30px 45px;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(246,246,246,1) 0%, rgba(246,246,246,0) 100%);
+  background: linear-gradient(180deg, #222 0%, #2220 100%);
   position: relative;
 }
 
@@ -143,3 +143,6 @@ body {
 }
 
 
+.dark-theme ul#how-to-use {
+  background: linear-gradient(180deg, #111, #2220);
+}
