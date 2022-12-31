@@ -143,3 +143,6 @@ body {
 }
 
 
+.dark-theme ul#how-to-use {
+  background: linear-gradient(180deg, #111, #2220);
+}
